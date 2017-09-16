@@ -42,7 +42,7 @@
 		"babel-plugin-transform-object-rest-spread": "^6.23.0",
 		"babel-plugin-transform-runtime": "^6.23.0",
 		"babel-preset-env": "^1.6.0",
-		"create-github-release": "^1.0.6",
+		"create-github-release": "^1.0.7",
 		"husky": "^0.14.3",
 		"lint-staged": "^4.0.2",
 		"prettier": "^1.7.0"
@@ -59,6 +59,6 @@
 		"mustache": "^2.3.0"
 	},
 	"peerDependencies": {
-		"create-github-release": "^1.0.6"
+		"create-github-release": "^1.0.7"
 	}
 }
