@@ -1,3 +1,5 @@
+import 'babel-polyfill'
+
 import path from 'path'
 import { readFile as _readFile } from 'fs'
 import promisify from 'es6-promisify'
@@ -13,9 +15,9 @@ const linkify = linkifyIt()
 const templateCache = {}
 const projectCache = {}
 
-export const DEFAULT_TEMPLATE = path.resolve(__dirname, 'defaultTemplate.md.hbs')
+const DEFAULT_TEMPLATE = path.resolve(__dirname, 'defaultTemplate.md.hbs')
 
-export default config => {
+const createRenderer = config => {
   if (!isObject(config)) {
     throw new Error('config must be an object')
   }
@@ -37,6 +39,10 @@ export default config => {
 
   return view => render(clubhouse, templatePath, view)
 }
+
+createRenderer.DEFAULT_TEMPLATE = DEFAULT_TEMPLATE
+
+export default createRenderer
 
 const render = async (clubhouse, templatePath, { pullRequests, ...view }) => {
   let fetchingTemplate = templateCache[templatePath]
@@ -74,8 +80,11 @@ const fetchStories = async (clubhouse, pullRequest) => {
 
 const extractStoryRefs = pullRequest => {
   const urlPattern = /^https:\/\/app\.clubhouse\.io\/.*\/story\/([0-9]+)\/.*$/
-  return [pullRequest.body, ...flatten(pullRequest.comments.map(comment => comment.body))]
-    .map(body => linkify.match(body) || [])
+  return flatten(
+    [pullRequest.body, ...flatten(pullRequest.comments.map(comment => comment.body))].map(
+      body => linkify.match(body) || []
+    )
+  )
     .map(({ url }) => {
       const match = url && url.match(urlPattern)
       if (match) {
