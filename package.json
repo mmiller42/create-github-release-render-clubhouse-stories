@@ -1,6 +1,6 @@
 {
 	"name": "create-github-release-render-clubhouse-stories",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Render function for use with create-github-release to render pull requests with associated Clubhouse stories.",
 	"keywords": [
 		"github",
