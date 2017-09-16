@@ -10,10 +10,10 @@
 	"main": "lib/index.js",
 	"scripts": {
 		"build": "rm -rf lib && babel src --out-dir lib --source-maps --copy-files",
-		"postpublish": "create-github-release",
+		"postpublish": "create-github-release $TAG",
 		"precommit": "lint-staged",
 		"prettier": "prettier --write 'src/**/*.{js,json}'",
-    "test": "exit 0",
+		"test": "exit 0",
 		"watch": "npm run build -- --watch"
 	},
 	"lint-staged": {
@@ -42,7 +42,7 @@
 		"babel-plugin-transform-object-rest-spread": "^6.23.0",
 		"babel-polyfill": "^6.26.0",
 		"babel-preset-env": "^1.6.0",
-    "create-github-release": "^1.0.0",
+		"create-github-release": "^1.0.0",
 		"husky": "^0.14.3",
 		"lint-staged": "^4.0.2",
 		"prettier": "^1.7.0"
@@ -57,7 +57,7 @@
 		"lodash.isobject": "^3.0.2",
 		"mustache": "^2.3.0"
 	},
-  "peerDependencies": {
-    "create-github-release": "^1.0.0"
-  }
+	"peerDependencies": {
+		"create-github-release": "^1.0.0"
+	}
 }
