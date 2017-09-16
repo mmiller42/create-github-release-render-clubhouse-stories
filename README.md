@@ -1,4 +1,4 @@
-# create-github-release-render-clubhouse-stories
+# create-github-release-render-clubhouse-stories [![CircleCI](https://circleci.com/gh/mmiller42/create-github-release-render-clubhouse-stories.svg?style=svg)](https://circleci.com/gh/mmiller42/create-github-release-render-clubhouse-stories)
 
 Render function for use with [`create-github-release`](https://github.com/mmiller42/create-github-release) to render pull requests with associated Clubhouse stories.
 
