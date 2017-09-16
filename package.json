@@ -1,0 +1,63 @@
+{
+	"name": "create-github-release-render-clubhouse-stories",
+	"version": "1.0.0",
+	"description": "Render function for use with create-github-release to render pull requests with associated Clubhouse stories.",
+	"keywords": [
+		"github",
+		"release",
+		"clubhouse"
+	],
+	"main": "lib/index.js",
+	"scripts": {
+		"build": "rm -rf lib && babel src --out-dir lib --source-maps --copy-files",
+		"postpublish": "create-github-release",
+		"precommit": "lint-staged",
+		"prettier": "prettier --write 'src/**/*.{js,json}'",
+    "test": "exit 0",
+		"watch": "npm run build -- --watch"
+	},
+	"lint-staged": {
+		"src/*.{js,json}": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"engines": {
+		"node": ">=4.3.0 <5.0.0 || >=5.10"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mmiller42/create-github-release-render-clubhouse-stories.git"
+	},
+	"author": "Matt Miller <me@mmiller.me>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/mmiller42/create-github-release-render-clubhouse-stories/issues"
+	},
+	"homepage": "https://github.com/mmiller42/create-github-release-render-clubhouse-stories#readme",
+	"devDependencies": {
+		"babel-cli": "^6.24.1",
+		"babel-core": "^6.25.0",
+		"babel-plugin-add-module-exports": "^0.2.1",
+		"babel-plugin-transform-object-rest-spread": "^6.23.0",
+		"babel-polyfill": "^6.26.0",
+		"babel-preset-env": "^1.6.0",
+    "create-github-release": "^1.0.0",
+		"husky": "^0.14.3",
+		"lint-staged": "^4.0.2",
+		"prettier": "^1.7.0"
+	},
+	"dependencies": {
+		"clubhouse-lib": "^0.1.7",
+		"es6-promisify": "^5.0.0",
+		"github": "^11.0.0",
+		"linkify-it": "^2.0.3",
+		"lodash.flatten": "^4.4.0",
+		"lodash.foreach": "^4.5.0",
+		"lodash.isobject": "^3.0.2",
+		"mustache": "^2.3.0"
+	},
+  "peerDependencies": {
+    "create-github-release": "^1.0.0"
+  }
+}
