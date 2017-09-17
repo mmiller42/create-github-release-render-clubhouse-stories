@@ -9,6 +9,7 @@ import Clubhouse from 'clubhouse-lib'
 import flatten from 'lodash.flatten'
 import isObject from 'lodash.isobject'
 import forEach from 'lodash.foreach'
+import uniqBy from 'lodash.uniqBy'
 
 const readFile = promisify(_readFile)
 const linkify = linkifyIt()
@@ -80,11 +81,13 @@ const fetchStories = async (clubhouse, pullRequest) => {
 
 const extractStoryRefs = pullRequest => {
   const urlPattern = /^https:\/\/app\.clubhouse\.io\/.*\/story\/([0-9]+)\/.*$/
-  return flatten(
+  const links = flatten(
     [pullRequest.body, ...flatten(pullRequest.comments.map(comment => comment.body))].map(
       body => linkify.match(body) || []
     )
   )
+
+  const storyRefs = links
     .map(({ url }) => {
       const match = url && url.match(urlPattern)
       if (match) {
@@ -95,6 +98,8 @@ const extractStoryRefs = pullRequest => {
       }
     })
     .filter(storyRef => storyRef)
+
+  return uniqBy(storyRefs, 'id')
 }
 
 const fetchStory = async (clubhouse, { url, id }) => {
