@@ -1,5 +1,3 @@
-import 'babel-polyfill'
-
 import path from 'path'
 import { readFile as _readFile } from 'fs'
 import promisify from 'es6-promisify'
