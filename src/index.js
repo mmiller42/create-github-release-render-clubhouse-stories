@@ -7,7 +7,7 @@ import Clubhouse from 'clubhouse-lib'
 import flatten from 'lodash.flatten'
 import isObject from 'lodash.isobject'
 import forEach from 'lodash.foreach'
-import uniqBy from 'lodash.uniqBy'
+import uniqBy from 'lodash.uniqby'
 
 const readFile = promisify(_readFile)
 const linkify = linkifyIt()
