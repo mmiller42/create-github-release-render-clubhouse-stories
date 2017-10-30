@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
-    "clubhouse-lib": "^0.1.7",
+    "clubhouse-lib": "^0.2.1",
     "es6-promisify": "^5.0.0",
     "github": "^11.0.0",
     "linkify-it": "^2.0.3",
