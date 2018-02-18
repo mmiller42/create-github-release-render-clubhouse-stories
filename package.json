@@ -44,7 +44,7 @@
     "babel-preset-env": "^1.6.0",
     "create-github-release": "^1.2.1",
     "husky": "^0.14.3",
-    "lint-staged": "^4.0.2",
+    "lint-staged": "^5.0.0",
     "prettier": "^1.7.0"
   },
   "dependencies": {
